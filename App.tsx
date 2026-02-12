@@ -16,10 +16,19 @@ const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<'home' | 'contact'>('home');
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     if (typeof window !== 'undefined') {
-      return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      if (localStorage.theme) return localStorage.theme;
+      return 'dark';
     }
     return 'dark';
   });
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);

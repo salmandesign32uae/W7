@@ -117,20 +117,22 @@ const EfficiencyInsights: React.FC = () => {
         </div>
 
         {/* Pill Tabs */}
-        <div className="flex justify-center mb-12 animate-fade-up" style={{ animationDelay: '100ms' }}>
-          <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 bg-gray-100 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-full transition-colors">
-            {TABS.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${activeTab === tab
+        <div className="flex justify-center mb-12 animate-fade-up px-4" style={{ animationDelay: '100ms' }}>
+          <div className="w-full max-w-fit overflow-x-auto scrollbar-hide">
+            <div className="inline-flex whitespace-nowrap gap-2 p-1.5 bg-gray-100 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-full transition-colors flex-nowrap">
+              {TABS.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 flex-shrink-0 ${activeTab === tab
                     ? 'bg-accent text-white shadow-[0_0_20px_rgba(59,130,246,0.4)]'
                     : 'text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white hover:bg-white/10'
-                  }`}
-              >
-                {tab}
-              </button>
-            ))}
+                    }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 

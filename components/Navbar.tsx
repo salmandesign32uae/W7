@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, theme, onToggleTheme, onNavig
           className="group transition-all hover:scale-[1.02] active:scale-[0.98] focus:outline-none"
           aria-label="W7 Consultancy Home"
         >
-          <Logo className="h-10" />
+          <Logo className="h-10" theme={theme} />
         </button>
 
         {/* Navigation Links */}
@@ -52,8 +52,8 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled, theme, onToggleTheme, onNavig
                 }
               }}
               className={`text-[14px] font-bold uppercase tracking-widest transition-colors ${(link.name === 'Home' && currentPage === 'home') || (link.name === 'Contact' && currentPage === 'contact')
-                  ? 'text-accent'
-                  : 'text-gray-500 dark:text-white/40 hover:text-accent dark:hover:text-white'
+                ? 'text-accent'
+                : 'text-gray-500 dark:text-white/40 hover:text-accent dark:hover:text-white'
                 }`}
             >
               {link.name}
